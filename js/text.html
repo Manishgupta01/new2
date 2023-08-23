@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print Txt</title>
+    <style>
+        .dk {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 style="color:yellowgreen;">TYPE YOUR OWN WORD FOR FUN</h2>
+
+    <input type="text" name="name" id="answers">
+    <input type="button" onclick="add()" value="Submit"></input>
+
+
+    <p id="dk"></p>
+
+    <script>
+        var y = [];
+        function add() {
+            var x = document.getElementById("answers").value;
+            document.getElementById("answers").value = '';
+            y.push(x);
+            console.log(y);
+            document.getElementById("dk").innerHTML = y;
+             }
+    </script>
+</body>
+
+</html>

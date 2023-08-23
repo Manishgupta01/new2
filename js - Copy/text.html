@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+
+<body>
+    <h1 style="color:green;">
+        GeeksforGeeks
+    </h1>
+
+    <!-- Form to add item -->
+    <form action="#">
+
+        <!-- Type of Element -->
+        <label for="type">
+            Add Element Type
+        </label>
+
+        <input type="text" id="type" placeholder="Like: div, h1, li...." value="li" />
+        <br /><br />
+
+        <!-- Text/Value for the element --->
+        <label for="value">
+            Add Element Value
+        </label>
+
+        <input type="text" id="value" placeholder="Like: Hello GeeksForGeeks" value="CHILD 2" />
+        <br /><br />
+
+        <!-- Submit the Form -->
+        <button type="button" onClick="addItem()">
+            Add
+        </button>
+    </form>
+
+    <!-- Parent tag where we add
+            item as child -->
+    <ol id="parent">
+        <li>List Item 1</li>
+    </ol>
+
+    <script>
+        // Define the addItem() function
+        // to be called through onclick
+        function addItem() {
+
+            // Get type of element from form
+            let type = document.
+                getElementById("type").value;
+
+            // Get the text/value for the tag
+            // from the form
+        let value = document.
+            getElementById("value").value;
+
+            // createElement() is used for
+            // creating a new element
+            type
+                = document.createElement(type);
+
+            // Use value as textnode in this example
+            type.appendChild(
+                document.createTextNode(value));
+
+            // Append as child to the parent
+            // tag i.e. ol
+            document.getElementById(
+                "parent").appendChild(type);
+        }
+    </script>
+
+</body>
+
+</html>
+
+
+
+<!-- skbdfj -->
+
+
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>
+		How to dynamically create
+		new elements in JavaScript?
+	</title>
+
+	<style>
+		/* CSS for child item */
+		.child {
+			color: white;
+			background-color: green;
+		}
+	</style>
+</head>
+
+<body id="body">
+	<h1 style="text-align:center; color:green;">
+		GeeksforGeeks
+	</h1>
+	<!-- Form to add item -->
+	<form action="#" style="text-align: center;">
+
+		<!-- Type of element -->
+		<label for="type">
+			Add Element Type
+		</label>
+
+		<input type="text" id="type" placeholder="Like: div, h1, li...." value="h3" />
+		<br /><br />
+
+		<!-- Text/value for element --->
+		<label for="value"> Add Element Value</label>
+
+		<input type="text" id="value" placeholder="Like: Hello GeeksForGeeks" value="Hello GeeksForGeeks" />
+		<br /><br />
+
+		<!-- Add attributes for element --->
+		<label for="attr"> Add Attributes</label>
+		<form id="attr">
+			<label for="attrType">Add Attribute Type</label>
+			<input type="text" style="width:240px;" placeholder="forexample: enter
+							'class' without quotes" id="attrType" value="class" />
+
+			<br />
+			<br />
+			<label for="attrValue">
+				Add Attribute Value
+			</label>
+			<input style="width:240px;" type="text" placeholder="for example: enter
+							'child' without quotes" id="attrValue" value="child" />
+		</form>
+		<br /><br />
+
+		<!-- Submit the form -->
+		<button type="button" onClick="addItem()">
+			Add
+		</button>
+	</form>
+
+	<div>
+		<p>CHILD 1</p>
+	</div>
+
+	<script>
+		// Define the addItem function
+		// to be called through onclick()
+		function addItem() {
+		
+			// Get Elements by id of the form inputs
+			let parent =
+				document.getElementById("body");
+		
+			let attrType =
+				document.getElementById("attrType");
+		
+			let attrValue =
+				document.getElementById("attrValue");
+			let type = document.getElementById("type");
+			let value = document.getElementById("value");
+		
+			if (type.value == "" || value.value == "") {
+				window.alert(
+					"There is an error in form input");
+				window.reload();
+			}
+		
+			// createElement() method is used
+			// to create a new element
+			type = document.createElement(type.value);
+		
+			// Append a text node for this example
+			type.appendChild(
+				document.createTextNode(value.value));
+		
+			if (attrValue.value == ""
+					|| attrType.value == "") {
+				attr = null;
+			}
+			else {
+				// setAttribute() is used to set
+				// the attributes of the element
+				type.setAttribute(
+					attrType.value, attrValue.value);
+			}
+		
+			// Append as child to the parent
+			// i.e. body
+			parent.appendChild(type);
+		}
+	</script>
+</body>
+
+</html>

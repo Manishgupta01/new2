@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>try</title>
+   
+</head>
+
+<body>
+    <h2 style="color:yellowgreen;">TYPE YOUR OWN WORD FOR FUN</h2>
+    <input type="text" id="taskIt" placeholder="Value">
+    <button id="addButton">Add</button>
+    <ul id="tstlist"></ul>
+
+    <script>
+        
+        const inptxt = document.getElementById("taskIt");
+        const addButton = document.getElementById("addButton");
+        const tstlist = document.getElementById("tstlist");
+
+        
+        function addTask() {
+            const tsttext = inptxt.value;
+            if (tsttext !== "") {
+                const taskItem = document.createElement("li");
+                taskItem.textContent = tsttext;
+                tstlist.appendChild(taskItem);
+                // if(tstlist.firstChild){
+                //     (tstlist.firstChild);
+                //     tstlist.insertBefore(taskItem,tstlist.firstChild)
+                // }
+                // else{
+                //     tstlist.appendChild(taskItem);
+                // }
+                inptxt.value = "";
+
+                taskItem.addEventListener("click" , ()=>{
+                    taskItem.style.textDecoration="line-through";
+                });
+            }
+        }
+        addButton.addEventListener("click", addTask);
+    </script>
+</body>
+
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Values Display</title>
+</head>
+<body>
+    <form id="myForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+        
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age"><br><br>
+        
+        <input type="submit" value="Submit">
+    </form>
+    
+    <div id="result"></div>
+    
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            const form = event.target;
+            const resultContainer = document.getElementById("result");
+            
+            resultContainer.innerHTML = "<h2>Form Values:</h2>";
+            
+            // Loop through form elements and display values
+            for (let i = 0; i < form.elements.length - 1; i++) {
+                const input = form.elements[i];
+                
+                if (input.tagName === "INPUT") {
+                    const name = input.name;
+                    const value = input.value;
+                    
+                    resultContainer.innerHTML += `<p><strong>${name}:</strong> ${value}</p>`;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

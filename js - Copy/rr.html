@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+
+            height: 40px;
+            width: 40px;
+            border: 1px solid;
+            margin: 10px;
+        }
+
+        #cl {
+            display: flex;
+            justify-content: center;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        .orange {
+            background-color: orange;
+        }
+
+        .lighblue {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <br><b> Choose your favroite season: </b><br>
+    <input type="radio" name="season" value="1" data-inputcolor="green"> BOX 1<br>
+    <input type="radio" name="season" value="2" data-inputcolor="orange"> BOX 2 <br>
+    <input type="radio" name="season" value="3" data-inputcolor="blue"> BOX 3 <br>
+    <input type="radio" name="season" value="4" data-inputcolor="lightblue"> BOX 4 <br>
+    <input type="radio" name="season" value="5" data-inputcolor="yellow"> BOX 5
+    <br><br>
+
+    <button onclick="checkButton()"> Submit </button>
+
+    <div id="cl">
+        <div class="box" id="box1"></div>
+        <div class="box" id="box2"></div>
+        <div class="box" id="box3"></div>
+        <div class="box" id="box4"></div>
+        <div class="box" id="box5"></div>
+    </div>
+
+    <h3 id="disp" style="color:green"> </h3>
+    <h4 id="error" style="color:red"> </h4>
+
+</body>
+
+<script>
+
+    function checkButton() {
+        var getSelectedValue = document.querySelector('input[name="season"]:checked');
+        if (getSelectedValue !== null) {
+            let color = getSelectedValue.dataset.inputcolor;
+            document.getElementById("disp").innerHTML = getSelectedValue.value + " season is selected";
+            let divs = document.getElementsByClassName('box');
+
+            for (let index = 0; index < divs.length; index++) {
+                divs[index].className = 'box ' + color;
+            }
+        }
+        else {
+            document.getElementById("error").innerHTML = "*You have not selected any season";
+        }
+
+
+    }
+</script>
+</body>
+
+</html>
